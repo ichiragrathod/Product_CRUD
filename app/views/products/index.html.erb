@@ -1,1 +1,25 @@
 <h1>All Product List</h1>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th colspan="4">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @products.each do |product| %>
+        <tr>
+            <td><%= product.name%></td>
+            <td><%= product.description%></td>
+            <td><%= product.stock%></td> 
+            <td><%= product.price%></td> 
+           
+        </tr>
+    <%  end %>   
+    </tbody>
+</table>
