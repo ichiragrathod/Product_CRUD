@@ -26,4 +26,23 @@ class ProductsController < ApplicationController
     def show
         @product=Product.find(params[:id])
     end
+
+
+
+
+
+    def edit
+        @product=Product.find(params[:id])
+    end
+
+    def update
+        @product = Product.find(params[:id])
+        if @product.update(params.require(:product).permit(:name,:description,:stock,:price))
+            flash[:notice]="Product updated successfully."
+            redirect_to @product
+        else
+            render 'edit'
+        end
+    end
+
 end
