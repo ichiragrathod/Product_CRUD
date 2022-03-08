@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
         @product=Product.new
     end
 
+
     def create
       @product = Product.new(params.require(:product).permit(:name,:description,:stock,:price))
       
@@ -19,5 +20,10 @@ class ProductsController < ApplicationController
         render 'new'
       end
 
+    end
+
+
+    def show
+        @product=Product.find(params[:id])
     end
 end
