@@ -4,4 +4,3 @@ class Product < ApplicationRecord
     validates :stock, presence: true,length: { is: 5 }
     validates :price, presence: true,length: { is: 8 }
 end
-end
