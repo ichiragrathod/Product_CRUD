@@ -1,6 +1,9 @@
 <h1 class="text-center mt-4">Listing all Products</h1>
 <br>
 
+<%= link_to "Add New Product", new_product_path, class: "btn btn-outline-primary" %>
+
+
  <% @products.each do |product| %>
 
     <div class="row justify-content-md-center">
@@ -31,11 +34,3 @@
    
 
 <%  end %>  
-
-
-
-
-
-<p>
-<%= link_to 'Add New Product', new_product_path %>
-</p>
