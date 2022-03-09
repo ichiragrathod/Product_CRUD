@@ -1,10 +1,32 @@
-<h1> Showing Products Details</h1>
+<h1 class="text-center mt-4">Showing Products Details</h1>
 <br>
-<p> <strong>Name: </strong><%= @product.name%></p>
-<p> <strong>description: </strong><%=@product.description%></p>
-<p> <strong>stock: </strong><%= @product.stock%></p>
-<p> <strong>Price: </strong><%= @product.price%></p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Delete', product_delete_path(@product.id), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to 'Return to Product listing', products_path%>
+
+
+ <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+
+                <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                Total Item: <%= @product.stock%>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= @product.name%></h5>
+                <div class="card-text text-left"><%= simple_format(@product.description)%></div>
+                <p class="card-text">Price: <%= @product.price%> <i class="fa fa-inr" style="font-size:16px"></i></p>
+               
+                
+                
+                <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-info" %>
+                <%= link_to "Delete", product_delete_path(@product.id), class: "btn btn-outline-danger" %>
+                <%= link_to "See Product listing", products_path, class: "btn btn-outline-info" %>
+            </div>
+                <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(@product.created_at) %> ago,
+                    <%= time_ago_in_words(@product.updated_at) %> edited ago</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
